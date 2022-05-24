@@ -3,6 +3,7 @@ $(document).ready(function () {
     $('.counter').val(140 - $('#tweet-text').val().length);
   });
 });
+
 $(document).ready(function () {
   $('#tweet-text').on('keydown keyup change', function (event) {
     if ($(this).val().length > 140) {
