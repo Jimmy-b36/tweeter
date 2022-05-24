@@ -1,0 +1,115 @@
+#humming,
+.tweet-content {
+  font-weight: bold;
+  border-bottom: 2px solid;
+  text-align: left;
+}
+#tweet-text {
+  margin-top: 1em;
+  border-radius: 5px;
+  resize: none;
+  height: 100px;
+}
+.centered,
+.tweet-box {
+  justify-content: center;
+  width: 70%;
+}
+
+.tweet-content-container {
+  margin: 0px 50px 0px 50px;
+  text-align: left;
+  justify-self: center;
+  border-bottom: 2px solid;
+}
+
+.write-tweet-title,
+.new-tweet-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+
+.tweet-char {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tweet-box {
+  border: 4px solid;
+  border-radius: 3px;
+  height: fit-content;
+}
+.tweet-box:hover {
+  box-shadow: 8px 9px 0px 5px yellow;
+}
+.new-tweet-header,
+.profile-name,
+.new-tweet-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.profile-name > p,
+.profile-name > img {
+  margin: 10px;
+}
+
+.handle {
+  opacity: 60%;
+}
+
+.btn {
+  font-family: 'Bungee';
+  border-radius: 5px;
+  border: 1px solid;
+  padding: 0.5em;
+  margin: 1em;
+  background: linear-gradient(to right, #f1faee 0%, #a8dadc 100%, #457b9d 100%);
+  box-shadow: 5px 5px 15px -10px #000000;
+}
+.btn:active {
+  animation: press 0.15s;
+}
+.counter {
+  font-family: 'Bungee';
+  margin: 1em;
+}
+
+form {
+  display: flex;
+  text-align: center;
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+
+.shimmy {
+  animation: shimmy 0.5 infinite;
+  color: #e63946;
+}
+
+@keyframes shimmy {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(20px, 50px);
+  }
+}
+
+@keyframes press {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.93);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.red {
+  color: red;
+}
