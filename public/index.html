@@ -5,25 +5,117 @@
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      type="text/css"
+    />
+    <!-- link internal CSS -->
+    <link rel="stylesheet" href="/styles/new-tweet.css" />
+    <link rel="stylesheet" href="/styles/nav.css" />
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <!-- Link fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- font Awesome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
-      <span>tweeter</span>
-    </nav>
 
+    <nav>
+      <div class="tweeter-title">
+        <h1>tweeter</h1>
+      </div>
+      <div class="new-tweet-header">
+        <p class="">
+          <b>Write</b> a new Tweet <br />
+          <i class="shimmy fa-solid fa-angles-down"></i>
+        </p>
+      </div>
+    </nav>
+    <header class="profile-header">
+      <div class="image">
+        <img
+          src="/images/discord.png"
+          height="256"
+          width="256"
+          alt="discord logo"
+        />
+      </div>
+
+      <div>
+        <h2>Jimmy-B</h2>
+      </div>
+    </header>
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="container">
+      <section class="write-tweet-title">
+        <div class="centered">
+          <h2>Compose Tweet</h2>
+          <form action="/tweets/" method="POST">
+            <label for="tweet-text" id="humming"
+              >What are you hummin about?</label
+            >
+            <textarea
+              value=""
+              name="text"
+              id="tweet-text"
+              placeholder="Tell me what you're pondering..."
+            ></textarea>
+            <div class="tweet-char">
+              <button type="submit" class="btn">Tweet</button>
+              <output name="submit" class="counter" for="tweet-text"
+                >140</output
+              >
+            </div>
+          </form>
+        </div>
+      </section>
+      <section class="new-tweet-container">
+        <div class="tweet-box">
+          <header class="new-tweet-header">
+            <div class="profile-name">
+              <img src="/images/profile.png" alt="profile-picture" />
+              <p>JimmyB</p>
+            </div>
+            <p class="handle"><b>@heyall</b></p>
+          </header>
+          <div class="tweet-content-container">
+            <p><b>Hi everyone</b></p>
+          </div>
+          <footer class="new-tweet-footer">
+            <div class="age">
+              <p>10 days ago</p>
+            </div>
+            <div class="tweet-actions"></div>
+          </footer>
+        </div>
+      </section>
+    </main>
+    <script
+      type="text/javascript"
+      src="/scripts/composer-char-counter.js"
+    ></script>
   </body>
 </html>
