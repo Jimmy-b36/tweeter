@@ -10,10 +10,17 @@
   resize: none;
   height: 100px;
 }
-.centered,
-.tweet-box {
+
+.centered {
   justify-content: center;
-  width: 70%;
+  width: 80%;
+}
+
+.tweet-box {
+  border: 4px solid;
+  border-radius: 3px;
+  height: fit-content;
+  background-color: #fff4eb;
 }
 
 .tweet-content-container {
@@ -37,20 +44,28 @@
   justify-content: space-between;
 }
 
-.tweet-box {
-  border: 4px solid;
-  border-radius: 3px;
-  height: fit-content;
-}
 .tweet-box:hover {
-  box-shadow: 8px 9px 0px 5px yellow;
+  box-shadow: 8px 9px 0px 5px #f48c06;
 }
+
+.fa-retweet:hover,
+.fa-bookmark:hover,
+.fa-heart-circle-plus:hover {
+  color: #f48c06;
+}
+
 .new-tweet-header,
 .profile-name,
 .new-tweet-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.age {
+  margin-left: 25px;
+}
+.tweet-actions {
+  margin-right: 25px;
 }
 .profile-name > p,
 .profile-name > img {
@@ -85,8 +100,8 @@ form {
   justify-content: space-between;
 }
 
-.shimmy {
-  animation: shimmy 0.5 infinite;
+.shimmy:hover {
+  animation: shimmy 0.5s infinite;
   color: #e63946;
 }
 
@@ -94,8 +109,17 @@ form {
   0% {
     transform: translate(0, 0);
   }
-  100% {
-    transform: translate(20px, 50px);
+  25% {
+    transform: translate(0px, 2.5px);
+  }
+  50% {
+    transform: translate(0px, 5px);
+  }
+  75% {
+    transform: translate(0, 2.5px);
+  }
+  to {
+    transform: translate(0, 0);
   }
 }
 
