@@ -1,10 +1,8 @@
 $(document).ready(function () {
   $('#tweet-form-submit').on('submit', onSubmit);
   loadTweets();
-  toggleTextArea()
+
 });
-
-
 
 //helper function for warnings
 const warningHelpers = (form) => {
@@ -23,13 +21,6 @@ const warningHelpers = (form) => {
   }
   return false;
 };
-
-// function to show and hide input area
-const toggleTextArea = () => {
-  $('#show-input').on('click', () => {
-    $('#write-tweet-title').slideToggle();
-  })
-}
 
 //function to creat the tweet html
 const createTweetElement = (tweet) => {
