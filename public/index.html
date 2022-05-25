@@ -56,10 +56,10 @@
         <h1>tweeter</h1>
       </div>
       <div class="new-tweet-header">
-        <p class="">
+        <a type="button" id="show-input">
           <b>Write</b> a new Tweet <br />
           <i class="shimmy fa-solid fa-angles-down"></i>
-        </p>
+        </a>
       </div>
     </nav>
     <header class="profile-header">
@@ -78,7 +78,7 @@
     </header>
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="write-tweet-title">
+      <section id="write-tweet-title">
         <div class="centered">
           <h2>Compose Tweet</h2>
           <form action="/tweets/" method="POST" id="tweet-form-submit">
