@@ -1,66 +1,6 @@
 $(document).ready(function () {
-  //function to creat the tweet html
-  const createTweetElement = (tweet) => {
-    const $tweet = $(`<article class="tweet-box centered">
-    <header class="new-tweet-header">
-    <div class="new-tweet-header">
-    <img src="${tweet.user.avatars}" alt="profile-picture" />
-    <p>${tweet.user.name}</p>
-    </div>
-    <p class="handle"><b>${tweet.user.handle}</b></p>
-    </header>
-    <div>
-    <p><b>${tweet.content.text}</b></p>
-    </div>
-    <footer class="new-tweet-footer">
-    <div>
-    <p>${timeago.format(tweet.created_at)}</p>
-    </div>
-    <div>
-    <i class="fa-solid fa-bookmark"></i>
-    <i class="fa-solid fa-retweet"></i>
-    <i class="fa-solid fa-heart-circle-plus"></i>
-    </div>
-    </footer>
-    </article>`);
-    return $tweet;
-  };
-
-  const renderTweets = function (tweets) {
-    for (const tweet of tweets) {
-      const newTweet = createTweetElement(tweet);
-
-      $('#new-tweet-container').prepend(newTweet);
-    }
-  };
-
-  //function to load the tweets on the page
-  const loadTweets = () => {
-    $.ajax('http://localhost:8080/tweets/', { type: 'GET' }).then(function (
-      response
-    ) {
-      renderTweets(response);
-    });
-  };
+  $('#tweet-form-submit').on('submit', onSubmit);
   loadTweets();
-
-  //function to submit tweets to the database
-
-  $('#tweet-form-submit').submit(function (evt) {
-    evt.preventDefault();
-    const form = $(this).serialize();
-    if (warningHelpers(form)) return;
-    $('#tweet-text').val('');
-    $('.counter').val(140);
-    $.ajax({
-      type: 'POST',
-      url: 'http://localhost:8080/tweets/',
-      data: form,
-    }).then(function (res) {
-      const tweetData = createTweetElement(res);
-      $('#new-tweet-container').prepend(tweetData);
-    });
-  });
 });
 
 //helper function for warnings
@@ -79,4 +19,69 @@ const warningHelpers = (form) => {
     return true;
   }
   return false;
+};
+
+//function to creat the tweet html
+const createTweetElement = (tweet) => {
+  const $tweet = $(`<article class="tweet-box centered">
+    <header class="new-tweet-header">
+    <div class="new-tweet-header">
+    <img src="${safeEscape(tweet.user.avatars)}" alt="profile-picture" />
+    <p>${safeEscape(tweet.user.name)}</p>
+    </div>
+    <p class="handle"><b>${safeEscape(tweet.user.handle)}</b></p>
+    </header>
+    <div>
+    <p><b>${safeEscape(tweet.content.text)}</b></p>
+    </div>
+    <footer class="new-tweet-footer">
+    <div>
+    <p>${timeago.format(safeEscape(tweet.created_at))}</p>
+    </div>
+    <div>
+    <i class="fa-solid fa-bookmark"></i>
+    <i class="fa-solid fa-retweet"></i>
+    <i class="fa-solid fa-heart-circle-plus"></i>
+    </div>
+    </footer>
+    </article>`);
+  return $tweet;
+};
+
+// function to create the tweets html and then prepend them
+const renderTweets = function (tweets) {
+  const $container = $('#new-tweet-container');
+  for (const tweet of tweets) {
+    const newTweet = createTweetElement(tweet);
+    $container.prepend(newTweet);
+  }
+};
+
+//function to load the tweets on the page
+const loadTweets = () => {
+  $.get('/tweets/').then(function (response) {
+    renderTweets(response);
+  });
+};
+
+//function to submit tweets to the database
+const onSubmit = function (evt) {
+  evt.preventDefault();
+  const data = $(this).serialize();
+
+  if (warningHelpers(data)) return;
+
+  $('#tweet-text').val('');
+  $('.counter').val(140);
+
+  $.post('/tweets', data)
+    .then(function (res) {
+      $('.tweet-box').replaceWith(loadTweets());
+    });
+}
+
+const safeEscape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
 };
