@@ -21,9 +21,10 @@
   border-radius: 3px;
   height: fit-content;
   background-color: #fff4eb;
+  margin: 20px;
 }
 
-.tweet-content-container {
+.tweet-box > div {
   margin: 0px 50px 0px 50px;
   text-align: left;
   justify-self: center;
@@ -31,7 +32,7 @@
 }
 
 .write-tweet-title,
-.new-tweet-container {
+#new-tweet-container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -48,27 +49,22 @@
   box-shadow: 8px 9px 0px 5px #f48c06;
 }
 
-.fa-retweet:hover,
-.fa-bookmark:hover,
-.fa-heart-circle-plus:hover {
+.new-tweet-footer i:hover {
   color: #f48c06;
 }
 
 .new-tweet-header,
-.profile-name,
 .new-tweet-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.age {
-  margin-left: 25px;
+.new-tweet-footer div {
+  margin: 0px 25px 0px 25px;
 }
-.tweet-actions {
-  margin-right: 25px;
-}
-.profile-name > p,
-.profile-name > img {
+
+.new-tweet-header > p,
+.new-tweet-header > img {
   margin: 10px;
 }
 
