@@ -1,11 +1,17 @@
 $(document).ready(function () {
-  $('#tweet-text').on('input', () => {
-    $('.counter').val(140 - $('#tweet-text').val().length);
+  const $textInput = $(this).find('textarea')
+  $textInput.on('input', () => {
+    let counter = $(this).find('output')
+    counter.val(140 - $textInput.val().length);
   });
+
+  charCounterWarnings()
 });
 
-$(document).ready(function () {
+
+const charCounterWarnings = () => {
   $('#tweet-text').on('keydown keyup change', function (event) {
+
     if ($(this).val().length > 140) {
       $('.counter').addClass('red');
     } else {
@@ -20,4 +26,4 @@ $(document).ready(function () {
       event.preventDefault();
     }
   });
-});
+}
