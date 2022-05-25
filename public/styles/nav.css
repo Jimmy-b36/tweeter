@@ -28,6 +28,6 @@ nav {
   justify-content: flex-end;
   height: 500px;
   width: 100%;
-  background-color: #e63946;
+  background: #e63946;
   background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
 }
