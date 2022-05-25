@@ -8,10 +8,8 @@ $(document).ready(function () {
   $('#tweet-text').on('keydown keyup change', function (event) {
     if ($(this).val().length > 140) {
       $('.counter').addClass('red');
-      $('.btn').attr('disabled', 'disabled');
     } else {
       $('.counter').removeClass('red');
-      $('.btn').removeAttr('disabled', 'disabled');
     }
 
     if (
