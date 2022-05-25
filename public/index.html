@@ -37,6 +37,14 @@
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+    <!-- timeago library -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+      integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
     <!-- App JS -->
   </head>
 
@@ -73,7 +81,7 @@
       <section class="write-tweet-title">
         <div class="centered">
           <h2>Compose Tweet</h2>
-          <form action="/tweets/" method="POST">
+          <form action="/tweets/" method="POST" id="tweet-form-submit">
             <label for="tweet-text" id="humming"
               >What are you hummin about?</label
             >
@@ -84,7 +92,7 @@
               placeholder="Tell me what you're pondering..."
             ></textarea>
             <div class="tweet-char">
-              <button type="submit" class="btn">Tweet</button>
+              <button type="submit" class="btn" id="input-btn">Tweet</button>
               <output name="submit" class="counter" for="tweet-text"
                 >140</output
               >
@@ -92,31 +100,9 @@
           </form>
         </div>
       </section>
-      <section class="new-tweet-container">
-        <div class="tweet-box centered">
-          <header class="new-tweet-header">
-            <div class="profile-name">
-              <img src="/images/profile.png" alt="profile-picture" />
-              <p>JimmyB</p>
-            </div>
-            <p class="handle"><b>@heyall</b></p>
-          </header>
-          <div class="tweet-content-container">
-            <p><b>Hello world!</b></p>
-          </div>
-          <footer class="new-tweet-footer">
-            <div class="age">
-              <p>10 days ago</p>
-            </div>
-            <div class="tweet-actions">
-              <i class="fa-solid fa-bookmark"></i>
-              <i class="fa-solid fa-retweet"></i>
-              <i class="fa-solid fa-heart-circle-plus"></i>
-            </div>
-          </footer>
-        </div>
-      </section>
+      <section id="new-tweet-container"></section>
     </main>
+    <script type="text/javascript" src="/scripts/client.js"></script>
     <script
       type="text/javascript"
       src="/scripts/composer-char-counter.js"
