@@ -26,27 +26,41 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  //function to load the tweets on the page
-  const loadTweets = () => {
-    $.ajax('/tweets', { type: 'GET' }).then(function (response) {
-      for (const tweet of response) {
-        const newTweet = createTweetElement(tweet);
-        $('#new-tweet-container').append(newTweet);
-      }
-    });
+  const renderTweets = function (tweets) {
+    for (const tweet of tweets) {
+      const newTweet = createTweetElement(tweet);
+
+      $('#new-tweet-container').prepend(newTweet);
+    }
   };
 
-  //function to submit tweets to the database
-  const tweetSubmit = () => {
-    $('#tweet-form-submit').submit(function (e) {
-      e.preventDefault();
-      const form = $(this).serialize();
-      if (warningHelpers(form)) return;
-      $.ajax('http://localhost:8080/tweets/', { type: 'POST', data: form });
-      loadTweets();
+  //function to load the tweets on the page
+  const loadTweets = () => {
+    $.ajax('http://localhost:8080/tweets/', { type: 'GET' }).then(function (
+      response
+    ) {
+      renderTweets(response);
     });
   };
-  tweetSubmit();
+  loadTweets();
+
+  //function to submit tweets to the database
+
+  $('#tweet-form-submit').submit(function (evt) {
+    evt.preventDefault();
+    const form = $(this).serialize();
+    if (warningHelpers(form)) return;
+    $('#tweet-text').val('');
+    $('.counter').val(140);
+    $.ajax({
+      type: 'POST',
+      url: 'http://localhost:8080/tweets/',
+      data: form,
+    }).then(function (res) {
+      const tweetData = createTweetElement(res);
+      $('#new-tweet-container').prepend(tweetData);
+    });
+  });
 });
 
 //helper function for warnings
@@ -58,7 +72,9 @@ const warningHelpers = (form) => {
     return true;
   }
   if (form.length > 145) {
-    const tooLongWarning = $(`<h3 class='red warning'>Too much Text!</h3>`);
+    const tooLongWarning = $(
+      `<h3 class='red warning'>Too many characters!</h3>`
+    );
     $(tooLongWarning).insertAfter('#input-btn');
     return true;
   }
