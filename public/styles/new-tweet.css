@@ -31,7 +31,7 @@
   border-bottom: 2px solid;
 }
 
-.write-tweet-title,
+#write-tweet-title,
 #new-tweet-container {
   display: flex;
   flex-direction: column;
@@ -69,7 +69,7 @@
 }
 
 .handle {
-  opacity: 60%;
+  opacity: 70%;
 }
 
 .btn {
