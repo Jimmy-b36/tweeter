@@ -33,7 +33,8 @@ const charCounterWarnings = () => {
 
 // function to show and hide input area
 const toggleTextArea = () => {
-  $('#show-input').on('click', () => {
-    $('main section').first().slideToggle();
+  const $inputArea = $('main section').first()
+  $('#compose').on('click', () => {
+    $inputArea.slideToggle(700);
   })
 }

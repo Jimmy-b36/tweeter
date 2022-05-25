@@ -31,6 +31,10 @@
   border-bottom: 2px solid;
 }
 
+#compose:hover {
+  cursor: pointer;
+}
+
 #write-tweet-title,
 #new-tweet-container {
   display: flex;
