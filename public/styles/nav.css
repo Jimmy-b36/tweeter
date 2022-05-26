@@ -1,6 +1,7 @@
 @media (min-width: 320px) {
   nav {
     display: flex;
+    padding: 1px;
     background-color: #1d3557;
     color: #ffffff;
     height: 120px;
