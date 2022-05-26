@@ -52,6 +52,7 @@ const createTweetElement = (tweet) => {
 // function to create the tweets html and then prepend them
 const renderTweets = function (tweets) {
   const $container = $('#new-tweet-container');
+
   for (const tweet of tweets) {
     const newTweet = createTweetElement(tweet);
     $container.prepend(newTweet);
@@ -81,6 +82,7 @@ const onSubmit = function (evt) {
     });
 }
 
+//safe escape function to convert scripting to regular text
 const safeEscape = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
