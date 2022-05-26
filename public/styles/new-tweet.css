@@ -5,7 +5,7 @@
     border-bottom: 2px solid;
     text-align: left;
   }
-  #tweet-text {
+  main textarea {
     margin-top: 1em;
     border-radius: 5px;
     resize: none;
@@ -48,6 +48,7 @@
 
   .tweet-char {
     display: flex;
+    flex-wrap: wrap-reverse;
     justify-content: space-between;
   }
 
@@ -62,6 +63,7 @@
   .new-tweet-header,
   .new-tweet-footer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
   }
@@ -111,6 +113,12 @@
     animation: shimmy 0.5s infinite;
     color: #e63946;
   }
+  .red {
+    color: red;
+  }
+  .warning {
+    font-size: 20px;
+  }
 }
 @media screen and (min-width: 728px) {
   .centered {
@@ -146,9 +154,6 @@
   to {
     transform: scale(1);
   }
-}
-.red {
-  color: red;
 }
 
 @media screen and (min-width: 1024px) {
