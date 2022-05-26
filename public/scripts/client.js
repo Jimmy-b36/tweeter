@@ -72,7 +72,7 @@ const onSubmit = function (evt) {
 
   if (warningHelpers(data)) return;
 
-  $('#tweet-text').val('');
+  $('textarea').val('');
   $('.counter').val(140);
 
   $.post('/tweets', data)
