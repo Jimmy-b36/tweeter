@@ -4,6 +4,7 @@ $(document).ready(function () {
   toggleTextArea()
 });
 
+//function to count down the character counter
 const charCounter = () => {
   const $textInput = $(document).find('textarea')
   $textInput.on('input', () => {
@@ -12,6 +13,7 @@ const charCounter = () => {
   });
 }
 
+// function to show warnings if requirements are not met
 const charCounterWarnings = () => {
   $('#tweet-text').on('keydown keyup change', function (event) {
 
