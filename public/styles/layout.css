@@ -19,7 +19,7 @@ body {
   margin: 0;
   padding: 0;
 }
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 100px) {
   body {
     width: 100vw;
     color: #545149;
