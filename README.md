@@ -4,8 +4,8 @@ Tweeter is a simple, single-page AJAX-based Twitter clone. Made using jQuery, HT
 
 ## Screenshots
 
-- Main page screenshot ![image](public/images/main-page-screenshot.png)
-- Tweets screenshot ![image](public/images/tweet-screenshot.png)
+- Main page screenshot ![image](docs/main-page-screenshot.png)
+- Tweets screenshot ![image](docs/tweet-screenshot.png)
 
 ## Getting Started
 
