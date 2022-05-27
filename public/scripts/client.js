@@ -5,14 +5,15 @@ $(document).ready(function () {
 });
 
 //helper function for warnings
-const warningHelpers = (form) => {
+const warningHelpers = () => {
+  const $textBox = $('textarea').val()
   $('.warning').remove();
-  if (form === 'text=') {
+  if (!$textBox.length) {
     const noTextWarning = $(`<h3 class='red warning'>Nothing in the box!</h3>`);
     $(noTextWarning).insertAfter('#input-btn');
     return true;
   }
-  if (form.length > 145) {
+  if ($textBox.length > 140) {
     const tooLongWarning = $(
       `<h3 class='red warning'>Too many characters!</h3>`
     );
@@ -71,7 +72,7 @@ const onSubmit = function (evt) {
   evt.preventDefault();
   const data = $(this).serialize();
 
-  if (warningHelpers(data)) return;
+  if (warningHelpers()) return;
 
   $('textarea').val('');
   $('.counter').val(140);
